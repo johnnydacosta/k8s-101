@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: maindb-configmap
+data:
+  db_password: my-secret-pw
+  db_name: appdb

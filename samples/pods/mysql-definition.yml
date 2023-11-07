@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "maindb"
+  labels:
+    app: "maindb"
+spec:
+  containers:
+  - name: maindb
+    image: "mysql:latest"
+    ports:
+    - containerPort:  3306
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      valueFrom:
+        configMapKeyRef:
+          key: db_password
+          name: maindb-configmap
+    - name: MYSQL_DATABASE
+      valueFrom:
+        configMapKeyRef:
+          key: db_name
+          name: maindb-configmap
+  restartPolicy: Always

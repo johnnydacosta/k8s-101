@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: k8s-101-base
+  name: k8s-101-base
+  resourceVersion: "1"
